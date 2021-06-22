@@ -7,10 +7,12 @@
 
 // This file is the outline/model with the bits of logic and information not displayed immediately
 
-import Foundation // imports stuff like String, Array, etc.
+import Foundation // imports stuff like String, Array, etc. and is UI INDEPENDANT
 
-struct MatchingGame<SymbolContent> {
+struct MatchingGame<SymbolContent> where SymbolContent: Equatable{ // Equatable means that you can do == on optionals (AKA the 'dont care' generic)
     private(set) var symbol: Array<Symbols> // Symbols type - create below -- private(set) to set and protect the Symbol array
+    
+    private var indexOfFaceCard: Int? // index of the ONLY card that is face up -- optional for build nil when init
     
     init(numberOfSymbols: Int, createSymbolContent: (Int) -> SymbolContent){ // createSymbolContent is an int func that returns SymbolContent
         symbol = Array<Symbols>() // add # of symbols * 2 to the symbol array
@@ -32,18 +34,26 @@ struct MatchingGame<SymbolContent> {
     } // end Symbols struct -- nested inside the MatchingGame to be directly accesssed by MatchingGame.Symbols <--
     
     mutating func choose(_ symbolPick: Symbols){ // keyword "mutating" denotes that this func will change the value
-        let chosenIndex = index(of: symbolPick)
-        symbol[chosenIndex].isFaceUp.toggle() // if the card is face up -- toggle the view of the card
-        //print("tapped card =  \(chosenCard)")
+        if let chosenIndex = symbol.firstIndex(where: {$0.id == symbolPick.id}),
+           !symbol[chosenIndex].isFaceUp,
+           !symbol[chosenIndex].isMatched{
+        // if this symbol id matches the symbol id of the array, execute code body below && the chosenIndex card is NOT face up && the card is NOT matched
+            if let potentialMatchIndex = indexOfFaceCard{
+                if symbol[chosenIndex].content == symbol[potentialMatchIndex].content { // this uses the where: Equatable clause
+                    symbol[chosenIndex].isMatched = true
+                    symbol[potentialMatchIndex].isMatched = true
+                } // if their content is the same, changed their matched values to true to trigger next func
+                indexOfFaceCard = nil
+            } // end if-let -- if the face up card matches the tapped card's index, check to see if the content is the same
+            else {
+                for index in 0..<symbol.count {
+                    symbol[index].isFaceUp = false // reset value
+                } // end for loop -- traverse the loop and set isFaceUp to false
+                indexOfFaceCard = chosenIndex 
+            } //end else -- else there is more than two cards face up, flip all cards in for loop
+            symbol[chosenIndex].isFaceUp.toggle() // if the card is face up -- toggle the view of the card
+            //above line will crash the game if nil is returned when using ! to force unwrap
+        } // end if-let -- chosenIndex
     } // end choose -- function chooses the Symbol
-    
-    func index(of symb: Symbols) -> Int{
-        for index in 0..<symbol.count{
-            if symbol[index].id == symb.id{
-                return index
-            } // end if statement -- if the id values match, return the index
-        } // end for loop -- iterate through the array 
-        return 0 // returns 0 if bogus
-    } // end indexOf
     
 } // end MatchingGame -- generic field that accepts the symbol being passed to it

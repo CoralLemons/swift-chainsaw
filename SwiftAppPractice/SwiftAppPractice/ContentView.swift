@@ -45,7 +45,10 @@ struct SymbolView: View {
                 shape.strokeBorder(Color.orange, lineWidth: 3)
                 Text(symbol.content).font(.largeTitle)
                     .padding(.all)
-            } // if it is face up -- change how it is viewed\
+            } // end if -- if the symbol card is face up, do this
+            else if symbol.isMatched{
+                shape.opacity(0) // like magic
+            }// end else if -- if the symbols are matched, make them dissapear
             else{
                 shape.fill(Color.purple)
             } // end else -- else just show the symbol shape filled
@@ -58,4 +61,4 @@ struct ContentView_Previews: PreviewProvider {
         let game = SymbolMatchGame()
         ContentView(viewGame: game)
     }
-}
+}// end preview struct
