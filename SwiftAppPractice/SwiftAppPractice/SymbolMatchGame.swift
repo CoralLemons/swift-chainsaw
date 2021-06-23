@@ -10,10 +10,10 @@ import SwiftUI
 class SymbolMatchGame: ObservableObject { //
     typealias Symbols = MatchingGame<String>.Symbols
     
-    private static let symbols = ["🐭","🐹","🦄","🐙","🐕","🦤","🐔","🐝","🦉","🐬","🐀","🐄"] // 12 animals
+    private static let symbols = ["🐭","🐹","🦄","🐙","🐕","🦤","🐔","🐝","🦉","🐬","🐀","🐄", "🦩","🐘","🦙","🦔"] // 16  animals
     
     private static func createMatchingGame() -> MatchingGame<String> {
-        MatchingGame<String>(numberOfSymbols: symbols.count){pairIndex in
+        MatchingGame<String>(numberOfSymbols: symbols.count){pairIndex in // hard coded in to array.count <-- change for levels later!!
             symbols[pairIndex] //
         } // create a model with # of total symbols in the array 'symbols'
     }// passes the string of the symbol -- private to restrict access

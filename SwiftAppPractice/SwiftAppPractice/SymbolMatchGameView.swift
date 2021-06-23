@@ -17,23 +17,16 @@ struct SymbolMatchGameView: View {
     
     var body: some View {
         ZStack{
-        VStack{
-            ScrollView{
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]){
-                    ForEach(Game.model.symbol){ index in
-                        SymbolView(index)
-                            .aspectRatio(2/3, contentMode: .fit)
-                            .onTapGesture {
-                                Game.choose(index)
-                            } // end onTapGesture -- when the shapes are tapped, do this body
-                    }// end forEach --
-                }// end LazyVGrid
-                .padding(.all) // provide padding for the buttons/cards
-            }// end scrollView
-        }// end vStack
+            AspectVGrid(items: Game.model.symbol, aspectRatio: 2/3, content: { index in
+                SymbolView(index)
+                    .aspectRatio(2/3, contentMode: .fit)
+                    .onTapGesture {
+                        Game.choose(index)
+                    } // end onTapGesture -- when the shapes are tapped, do this body
+            }) // end aspectVGrid
         }.background(Color("colorBackground")).edgesIgnoringSafeArea(.all) // fill the background with a color
         // end ZStack
-        .padding(.top, 5) // notch the top
+    .padding(.top, 5) // notch the top
     } // end body
 } // end contentView
 
@@ -72,8 +65,8 @@ struct SymbolView: View {
     } // end font func
     
     private struct DrawingConstants{
-        static let cornerRadius: CGFloat = 20 // for rectangle
+        static let cornerRadius: CGFloat = 20 // for rectangle shapes in the future
         static let lineWidth: CGFloat = 3
-        static let fontScale: CGFloat = 0.8
+        static let fontScale: CGFloat = 0.75
     } // end DrawingConstants
 } // end SymbolView

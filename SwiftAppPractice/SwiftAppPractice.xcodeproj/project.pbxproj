@@ -13,6 +13,7 @@
 		71880DDD26821FBC00C4AC3E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71880DDC26821FBC00C4AC3E /* Preview Assets.xcassets */; };
 		71880DE52682230000C4AC3E /* MatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71880DE42682230000C4AC3E /* MatchingGame.swift */; };
 		71880DE72682232B00C4AC3E /* SymbolMatchGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71880DE62682232B00C4AC3E /* SymbolMatchGame.swift */; };
+		71A56F1D2683BC5C00AB5A16 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A56F1C2683BC5C00AB5A16 /* AspectVGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		71880DDE26821FBC00C4AC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71880DE42682230000C4AC3E /* MatchingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGame.swift; sourceTree = "<group>"; };
 		71880DE62682232B00C4AC3E /* SymbolMatchGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolMatchGame.swift; sourceTree = "<group>"; };
+		71A56F1C2683BC5C00AB5A16 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				71880DD926821FBC00C4AC3E /* Assets.xcassets */,
 				71880DDE26821FBC00C4AC3E /* Info.plist */,
 				71880DDB26821FBC00C4AC3E /* Preview Content */,
+				71A56F1C2683BC5C00AB5A16 /* AspectVGrid.swift */,
 			);
 			path = SwiftAppPractice;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				71880DD826821FBC00C4AC3E /* SymbolMatchGameView.swift in Sources */,
 				71880DE72682232B00C4AC3E /* SymbolMatchGame.swift in Sources */,
 				71880DD626821FBC00C4AC3E /* SwiftAppPracticeApp.swift in Sources */,
+				71A56F1D2683BC5C00AB5A16 /* AspectVGrid.swift in Sources */,
 				71880DE52682230000C4AC3E /* MatchingGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
