@@ -11,11 +11,14 @@
 
 import SwiftUI
 
+let lemonYellow = Color(hue: 0.1639, saturation: 1, brightness: 1)
+
 struct SymbolMatchGameView: View {
     @ObservedObject var Game : SymbolMatchGame
     // @ObservedObject means that this body will be rebuilt when changed
     
     var body: some View {
+        ZStack{
         VStack{
             ScrollView{
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]){
@@ -27,11 +30,13 @@ struct SymbolMatchGameView: View {
                             } // end onTapGesture -- when the shapes are tapped, do this body
                     }// end forEach --
                 }// end LazyVGrid
+                .padding(.all) // provide padding for the buttons/cards
             }// end scrollView
         }// end vStack
-        .padding(.horizontal)
+        }.background(Color("colorBackground")).edgesIgnoringSafeArea(.all) // fill the background with a color
+        // end ZStack
+        .padding(.top, 5) // notch the top
     } // end body
-    
 } // end contentView
 
 struct SymbolView: View {
@@ -41,27 +46,21 @@ struct SymbolView: View {
     } // end init
     
     var body: some View {
-        let shape = RoundedRectangle.init(cornerRadius: 20)
+        let shape = Circle()
         ZStack{
             if symbol.isFaceUp {
-                shape.fill().foregroundColor(.white)
-                shape.strokeBorder(Color.orange, lineWidth: 3)
-                Text(symbol.content).font(.largeTitle)
+                shape.fill(Color(.orange)).foregroundColor(.orange)
+                shape.strokeBorder(Color.yellow, lineWidth: 3)
+                shape.overlay(Text(symbol.content).font(.largeTitle) , alignment: .center) //overlay modifier changed the way things stacked, symbol is now on the circle centered
+                    // overlay makes text size to circle whereas .background would make the shape sized to the text and stacked Shape on Text
                     .padding(.all)
             } // end if -- if the symbol card is face up, do this
             else if symbol.isMatched{
                 shape.opacity(0) // like magic
             }// end else if -- if the symbols are matched, make them dissapear
             else{
-                shape.fill(Color.purple)
-            } // end else -- else just show the symbol shape filled
+                shape.overlay(Image("custom.brain").font(.largeTitle) , alignment: .center).foregroundColor(Color("AccentColor"))
+            } // end else -- else just show brain symbol on the card face down
         }// end zstack
     } // end body
 } // end SymbolView
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        let game = SymbolMatchGame()
-        SymbolMatchGameView(Game: game)
-    }
-}// end preview struct
