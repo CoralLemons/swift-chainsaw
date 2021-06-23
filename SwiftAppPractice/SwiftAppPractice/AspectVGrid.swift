@@ -13,6 +13,12 @@ struct AspectVGrid<inBoundItem, iBTView>: View where iBTView: View, inBoundItem:
     var aspectRatio: CGFloat
     var content: (inBoundItem) -> iBTView // content is a function that takes in iBT and returns a view in the form of iBTView
     
+    init(items: [inBoundItem], aspectRatio: CGFloat, @ViewBuilder content: @escaping (inBoundItem) -> iBTView){
+        self.items = items
+        self.aspectRatio = aspectRatio
+        self.content = content
+    }// end init -- content is a passing function so @escaping helps to keep/hold this value found there AKA a pointer to 'content'
+    
     var body: some View {
         GeometryReader{geometry in
             VStack{
@@ -51,11 +57,6 @@ struct AspectVGrid<inBoundItem, iBTView>: View where iBTView: View, inBoundItem:
         } // end if statement --
         return floor(size.width / CGFloat(columnCount)) // returns the rounded down math expression
     }// end customFit -- adjusts the width of the view shapes by how many are on the app
-    
-    
-    
-    
-    
     
 } // end AspectVGrid
 

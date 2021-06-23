@@ -14,6 +14,7 @@
 		71880DE52682230000C4AC3E /* MatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71880DE42682230000C4AC3E /* MatchingGame.swift */; };
 		71880DE72682232B00C4AC3E /* SymbolMatchGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71880DE62682232B00C4AC3E /* SymbolMatchGame.swift */; };
 		71A56F1D2683BC5C00AB5A16 /* AspectVGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A56F1C2683BC5C00AB5A16 /* AspectVGrid.swift */; };
+		71A56F1F2683DBBD00AB5A16 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A56F1E2683DBBD00AB5A16 /* Pie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		71880DE42682230000C4AC3E /* MatchingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingGame.swift; sourceTree = "<group>"; };
 		71880DE62682232B00C4AC3E /* SymbolMatchGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolMatchGame.swift; sourceTree = "<group>"; };
 		71A56F1C2683BC5C00AB5A16 /* AspectVGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectVGrid.swift; sourceTree = "<group>"; };
+		71A56F1E2683DBBD00AB5A16 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				71880DDE26821FBC00C4AC3E /* Info.plist */,
 				71880DDB26821FBC00C4AC3E /* Preview Content */,
 				71A56F1C2683BC5C00AB5A16 /* AspectVGrid.swift */,
+				71A56F1E2683DBBD00AB5A16 /* Pie.swift */,
 			);
 			path = SwiftAppPractice;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A56F1F2683DBBD00AB5A16 /* Pie.swift in Sources */,
 				71880DD826821FBC00C4AC3E /* SymbolMatchGameView.swift in Sources */,
 				71880DE72682232B00C4AC3E /* SymbolMatchGame.swift in Sources */,
 				71880DD626821FBC00C4AC3E /* SwiftAppPracticeApp.swift in Sources */,
