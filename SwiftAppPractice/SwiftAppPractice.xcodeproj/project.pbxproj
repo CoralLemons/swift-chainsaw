@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		71880DD626821FBC00C4AC3E /* SwiftAppPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71880DD526821FBC00C4AC3E /* SwiftAppPracticeApp.swift */; };
-		71880DD826821FBC00C4AC3E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71880DD726821FBC00C4AC3E /* ContentView.swift */; };
+		71880DD826821FBC00C4AC3E /* SymbolMatchGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71880DD726821FBC00C4AC3E /* SymbolMatchGameView.swift */; };
 		71880DDA26821FBC00C4AC3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71880DD926821FBC00C4AC3E /* Assets.xcassets */; };
 		71880DDD26821FBC00C4AC3E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71880DDC26821FBC00C4AC3E /* Preview Assets.xcassets */; };
 		71880DE52682230000C4AC3E /* MatchingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71880DE42682230000C4AC3E /* MatchingGame.swift */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		71880DD226821FBC00C4AC3E /* SwiftAppPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftAppPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71880DD526821FBC00C4AC3E /* SwiftAppPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftAppPracticeApp.swift; sourceTree = "<group>"; };
-		71880DD726821FBC00C4AC3E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		71880DD726821FBC00C4AC3E /* SymbolMatchGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolMatchGameView.swift; sourceTree = "<group>"; };
 		71880DD926821FBC00C4AC3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71880DDC26821FBC00C4AC3E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71880DDE26821FBC00C4AC3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				71880DD526821FBC00C4AC3E /* SwiftAppPracticeApp.swift */,
-				71880DD726821FBC00C4AC3E /* ContentView.swift */,
+				71880DD726821FBC00C4AC3E /* SymbolMatchGameView.swift */,
 				71880DE42682230000C4AC3E /* MatchingGame.swift */,
 				71880DE62682232B00C4AC3E /* SymbolMatchGame.swift */,
 				71880DD926821FBC00C4AC3E /* Assets.xcassets */,
@@ -144,7 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71880DD826821FBC00C4AC3E /* ContentView.swift in Sources */,
+				71880DD826821FBC00C4AC3E /* SymbolMatchGameView.swift in Sources */,
 				71880DE72682232B00C4AC3E /* SymbolMatchGame.swift in Sources */,
 				71880DD626821FBC00C4AC3E /* SwiftAppPracticeApp.swift in Sources */,
 				71880DE52682230000C4AC3E /* MatchingGame.swift in Sources */,

@@ -11,11 +11,11 @@ import SwiftUI
 
 @main
 struct SwiftAppPracticeApp: App {
-    let game = SymbolMatchGame() // uses the init in SymbolMatchGame
+    private let game = SymbolMatchGame() // uses the init in SymbolMatchGame
     
     var body: some Scene {
         WindowGroup {
-            ContentView(viewGame: game)
+            SymbolMatchGameView(Game: game)
         }
     } // end body
 } // end SwiftAppPracticeApp
