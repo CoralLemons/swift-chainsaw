@@ -42,21 +42,23 @@ struct SymbolView: View {
                 let shape = Circle().fill(Color.yellow) // when face up, change color to brighter yellow
                 shape.overlay((Text(symbol.content)
                                 .rotationEffect(Angle.degrees(symbol.isMatched ? 360: 0)) // if matched, rotate 360 degrees otherwise do not rotate
-                                .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: false))
-                                .font(font(in: geometry.size))))
+                                .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: false)) // placement of animation modifier affects what it animates, be careful, putting it at the end of the .scaleEffect will animate EVERYTHING ABOVE 
+                                .font(Font.system(size: 32)))
+                                .scaleEffect(scale(thatFits: geometry.size)))
                 //overlay modifier changed the way things stacked, symbol is now on the circle centered with automatically adjusting size symbol
                 // overlay makes text size to circle whereas .background would make the shape sized to the text and stacked Shape on Text
-               Pie(startAngle: Angle(degrees: 270), endAngle: Angle(degrees: 0)).size(CGSize(width: 25, height: 25)).fill(Color.red) // small upper left circle that animates when timer goes down
+                Pie(startAngle: Angle(degrees: 270), endAngle: Angle(degrees: 0)).size(CGSize(width: 25, height: 25)).fill(Color.red) // small upper left circle that animates when timer goes down
             }// end zstack
             .symbolize(isFaceUp: symbol.isFaceUp, isMatch: symbol.isMatched)
         })// end geomteryReader
     } // end body
     
-    private func font(in size: CGSize) -> Font {
-        Font.system(size: min(size.width, size.height) * DrawingConstants.fontScale)
-    } // end font func
+    private func scale(thatFits size: CGSize) -> CGFloat{
+        min(size.width, size.height) / (DrawingConstants.fontSize / DrawingConstants.fontScale)
+    } // end scale -- return a float to scale the symbols
     
     private struct DrawingConstants{
         static let fontScale: CGFloat = 0.75
+        static let fontSize: CGFloat = 32
     } // end DrawingConstants
 } // end SymbolView

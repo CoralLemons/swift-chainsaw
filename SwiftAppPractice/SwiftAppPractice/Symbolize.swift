@@ -10,26 +10,19 @@ import SwiftUI
 struct Symbolize: ViewModifier {
     var isFaceUp: Bool
     var isMatch: Bool
-    var lpTest: String = "Match"
     
     func body(content: Content) -> some View {
-        GeometryReader{ geometry in
         ZStack{
-            if isFaceUp {
-                content
-            } // end if -- if the symbol card is face up, do this
-            else{
-                if !isMatch{
+            content.opacity(isFaceUp ? 1:0)
+            if !isFaceUp && !isMatch{
                 let shape = Circle().fill(Color("AccentColor"))
                 shape.overlay(Image("custom.brain").font(.largeTitle) ,alignment: .center)
-                } // if it is not a match, show the default logo, otherwise make them dissapear
+            // if it is not a match, show the default logo, otherwise make them dissapear
             } // end else -- else just show brain symbol on the card face down
         }// end zstack
-    } // end georeader
-    } // end body of func
+} // end body of func
     
     private struct DrawingConstants{
-        static let cornerRadius: CGFloat = 20 // for rectangle shapes in the future
         static let lineWidth: CGFloat = 3
         static let fontScale: CGFloat = 0.75
     } // end DrawingConstants
@@ -37,11 +30,6 @@ struct Symbolize: ViewModifier {
     private func font(in size: CGSize) -> Font {
         Font.system(size: min(size.width, size.height) * DrawingConstants.fontScale)
     } // end font func
-    
-    // insert function here to change and return the content maybe??
-    
-    
-    
 } // end Symbolize --  returns a 'card' AKA a symbol circle of a given or passed emoji
 
 extension View {
