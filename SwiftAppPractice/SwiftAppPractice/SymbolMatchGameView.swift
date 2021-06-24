@@ -37,24 +37,15 @@ struct SymbolView: View {
     } // end init
     
     var body: some View {
-        let shape = Circle().fill(Color("AccentColor")) // fill shape default color
         GeometryReader(content: { geometry in
             ZStack{
-                if symbol.isFaceUp {
-                    let shape = Circle().fill(Color.yellow) // when face up, change color to brighter yellow
-                    shape.overlay((Text(symbol.content)
-                                    .font(font(in: geometry.size)))) //overlay modifier changed the way things stacked, symbol is now on the circle centered with automatically adjusting size symbol
-                        // overlay makes text size to circle whereas .background would make the shape sized to the text and stacked Shape on Text
-                    Pie(startAngle: Angle(degrees: 270), endAngle: Angle(degrees: 0)).size(CGSize(width: 25, height: 25)).fill(Color.red) // small upper left circle that animates when timer goes down
-                } // end if -- if the symbol card is face up, do this
-                else if symbol.isMatched{
-                    shape.opacity(0) // like magic
-                    // some code here for score later
-                }// end else if -- if the symbols are matched, make them dissapear
-                else{
-                    shape.overlay(Image("custom.brain").font(.largeTitle) ,alignment: .center)
-                } // end else -- else just show brain symbol on the card face down
+                let shape = Circle().fill(Color.yellow) // when face up, change color to brighter yellow
+                shape.overlay((Text(symbol.content)
+                               .font(font(in: geometry.size)))) //overlay modifier changed the way things stacked, symbol is now on the circle centered with automatically adjusting size symbol
+                    // overlay makes text size to circle whereas .background would make the shape sized to the text and stacked Shape on Text
+                Pie(startAngle: Angle(degrees: 270), endAngle: Angle(degrees: 0)).size(CGSize(width: 25, height: 25)).fill(Color.red) // small upper left circle that animates when timer goes down
             }// end zstack
+            .symbolize(isFaceUp: symbol.isFaceUp, isMatch: symbol.isMatched)
         })// end geomteryReader
     } // end body
     
@@ -63,8 +54,6 @@ struct SymbolView: View {
     } // end font func
     
     private struct DrawingConstants{
-        static let cornerRadius: CGFloat = 20 // for rectangle shapes in the future
-        static let lineWidth: CGFloat = 3
         static let fontScale: CGFloat = 0.75
     } // end DrawingConstants
 } // end SymbolView
