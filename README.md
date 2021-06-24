@@ -10,7 +10,8 @@ Main Files
       <li>SymbolMatchGame.swift <-- this has the Array, game init, and model change code</li>
       <li>SwiftAppPracticeApp.swift <-- main for the application, has comments for the SymbolMatchGameView</li>
       <li>AspectVGrid.swift <-- file has func and struc for <i>adaptive</i> type View for the displayed shapes </li>
-      <li>Pie.swift <-- file serves as a custom shape animation for timer</li>
+      <li>Pie.swift <-- file serves as a custom shape animation for timer</li>'
+      <li>Symbolize.swift <-- file serves as a viewBuilder/viewModifier that returns a View of symbols</li>
       <li><s>ContentView.swift</s> <-- old content view, name changed and removed from repo</li>
   </ul>
 </h6>
