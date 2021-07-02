@@ -40,7 +40,7 @@ struct SymbolMatchGameView: View {
     var shuffle: some View {
         Button("Shuffle"){
             withAnimation{
-            Game.shuffle() // shuffle the game symbols
+            Game.shuffle() // shuffle the game symbols (really just shuffles the view modifier's position && frame)
             }
         }
     } // end shuffle var -- creates a button that shuffles the cards
