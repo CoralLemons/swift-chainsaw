@@ -16,6 +16,14 @@ struct SymbolMatchGameView: View {
     // @ObservedObject means that this body will be rebuilt when changed
     
     var body: some View {
+        VStack{
+            gameBody
+            shuffle
+        } // vertically stack the game and the shuffle button
+        .padding()
+    } // end body
+    
+    var gameBody: some View{
         ZStack{
             AspectVGrid(items: Game.model.symbol, aspectRatio: 2/3, content: { index in
                 SymbolView(index)
@@ -26,9 +34,17 @@ struct SymbolMatchGameView: View {
             }) // end aspectVGrid
         }.background(Color("colorBackground")).edgesIgnoringSafeArea(.all) // fill the background with a color
         // end ZStack
-    .padding(.top, 5) // notch the top
-    } // end body
-} // end contentView
+        .padding(.top, 5) // notch the top
+    }
+    
+    var shuffle: some View {
+        Button("Shuffle"){
+            withAnimation{
+            Game.shuffle() // shuffle the game symbols
+            }
+        }
+    } // end shuffle var -- creates a button that shuffles the cards
+} // end SymbolMatchGameView
 
 struct SymbolView: View {
     private let symbol: SymbolMatchGame.Symbols // read only

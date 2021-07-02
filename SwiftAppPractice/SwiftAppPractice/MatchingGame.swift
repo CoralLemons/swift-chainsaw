@@ -59,6 +59,10 @@ struct MatchingGame<SymbolContent> where SymbolContent: Equatable{ // Equatable 
         } // end if-let -- chosenIndex
     } // end choose -- function chooses the Symbol
     
+    mutating func shuffle(){
+        symbol.shuffle() 
+    } // end shuffle function
+    
 } // end MatchingGame -- generic field that accepts the symbol being passed to it
 
 extension Array{

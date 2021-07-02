@@ -27,4 +27,9 @@ class SymbolMatchGame: ObservableObject { //
         model.choose(inBoundSymbol)
     } // end choose -- invoke the model.choose
     
+    
+    func shuffle(){
+        model.shuffle()
+    } // end func shuffle -- this function shuffles the cards
+    
 } // end SymbolMatchGame -- initializes the model of MatchingGame
