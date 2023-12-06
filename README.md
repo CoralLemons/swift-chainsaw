@@ -15,5 +15,3 @@ Main Files
       <li><s>ContentView.swift</s> <-- old content view, name changed and removed from repo</li>
   </ul>
 </h6>
-
-<h3>This project is slowly being worked on, but it has not been abandoned. Check back later for an update. </h3>
